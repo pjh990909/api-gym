@@ -1,6 +1,6 @@
 package com.javaex.vo;
 
-public class GymVo {
+public class TrainerVo {
 
 	private int no;
 	private String id;
@@ -10,12 +10,17 @@ public class GymVo {
 	private String gender;
 	private String hp;
 	private int age;
-	
-	public GymVo() {
+	private String orgName;
+	private String saveName;
+	private String filePath;
+	private String fileSize;
+
+	public TrainerVo() {
 		super();
 	}
 
-	public GymVo(int no, String id, String password, String name, String address, String gender, String hp, int age) {
+	public TrainerVo(int no, String id, String password, String name, String address, String gender, String hp, int age,
+			String orgName, String saveName, String filePath, String fileSize) {
 		super();
 		this.no = no;
 		this.id = id;
@@ -25,6 +30,10 @@ public class GymVo {
 		this.gender = gender;
 		this.hp = hp;
 		this.age = age;
+		this.orgName = orgName;
+		this.saveName = saveName;
+		this.filePath = filePath;
+		this.fileSize = fileSize;
 	}
 
 	public int getNo() {
@@ -91,12 +100,43 @@ public class GymVo {
 		this.age = age;
 	}
 
+	public String getOrgName() {
+		return orgName;
+	}
+
+	public void setOrgName(String orgName) {
+		this.orgName = orgName;
+	}
+
+	public String getSaveName() {
+		return saveName;
+	}
+
+	public void setSaveName(String saveName) {
+		this.saveName = saveName;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
+	public String getFileSize() {
+		return fileSize;
+	}
+
+	public void setFileSize(String fileSize) {
+		this.fileSize = fileSize;
+	}
+
 	@Override
 	public String toString() {
-		return "GymVo [no=" + no + ", id=" + id + ", password=" + password + ", name=" + name + ", address=" + address
-				+ ", gender=" + gender + ", hp=" + hp + ", age=" + age + "]";
+		return "TrainerVo [no=" + no + ", id=" + id + ", password=" + password + ", name=" + name + ", address="
+				+ address + ", gender=" + gender + ", hp=" + hp + ", age=" + age + ", orgName=" + orgName
+				+ ", saveName=" + saveName + ", filePath=" + filePath + ", fileSize=" + fileSize + "]";
 	}
-	
-	
-	
+
 }

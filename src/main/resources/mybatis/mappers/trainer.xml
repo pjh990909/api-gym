@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="trainer">
+	<!-- 쿼리문작성 -->
+	
+	<!-- 트레이너 등록 -->
+	
+	<!-- 트레이너 로그인 -->
+	<select id="selectByIdPw" resultType="com.javaex.vo.TrainerVo" parameterType="com.javaex.vo.TrainerVo">
+		<![CDATA[
+			select no,name, address, gender, hp, age
+			from trainer
+			where id= #{id} and password=#{password}
+		]]>
+	</select>
+	
+	<!-- 트레이너 정보  -->
+	<select id="selectTinformation" resultType="com.javaex.vo.TrainerVo">
+		<![CDATA[
+			select t.name,
+				   t.age,
+			       t.hp,
+			       i.orgName,
+			       i.saveName,
+			       i.filePath,
+			       i.fileSize
+			from trainer t, introduction i
+			where t.no = i.trainer_no
+			and t.no = #{no}	
+		]]>
+	</select>
+</mapper>

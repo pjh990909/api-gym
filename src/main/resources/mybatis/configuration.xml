@@ -8,6 +8,6 @@
 
 
     <mappers>
-        <mapper resource="mybatis/mappers/gym.xml" />
+        <mapper resource="mybatis/mappers/trainer.xml" />
     </mappers>
 </configuration>
