@@ -31,4 +31,33 @@
 			and t.no = #{no}	
 		]]>
 	</select>
+	
+	<!-- 트레이너 정보  -->
+	<select id="selectTinformation2" resultType="com.javaex.vo.TrainerVo">
+		<![CDATA[
+			select name,
+				   age,
+			       hp
+			      
+			from trainer
+			where no = #{no}	
+		]]>
+	</select>
+	
+	<!-- 강사소개리스트 -->
+	<select id="selectTrainerList" resultType="com.javaex.vo.TrainerVo">
+		<![CDATA[
+			select t.name,
+				   t.age,
+			       t.hp,
+			       i.orgName,
+			       i.saveName,
+			       i.filePath,
+			       i.fileSize,
+			       i.content
+			from trainer t, introduction i
+			where t.no = i.trainer_no
+		]]>
+	</select>
+	
 </mapper>

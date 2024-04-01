@@ -1,5 +1,7 @@
 package com.javaex.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,14 +24,29 @@ public class TrainerService {
 	public TrainerVo exeLoginSeccess(int no) {
 		System.out.println("TrainerService.exeLoginSeccess()");
 		
-		return trainerDao.loginSeccess(no);
+		TrainerVo tv = trainerDao.loginSeccess(no);
+		
+		if(tv == null) {
+			
+			
+			
+			return trainerDao.login2(no);
+			
+		}else {
+			
+			return trainerDao.loginSeccess(no);
+		}
+		
+		
 	}
 	
 	//트레이너소개 및 pt등록창
-	public TrainerVo exeTrainerList() {
+	public List<TrainerVo> exeTrainerList() {
+		System.out.println("TrainerService.exeTrainerList()");
 		
-		trainerDao.trainerList();
-		return null;
+		List<TrainerVo> TrainerList = trainerDao.trainerList();
+		
+		return TrainerList;
 	}
 	
 }

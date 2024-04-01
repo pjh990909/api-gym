@@ -1,5 +1,7 @@
 package com.javaex.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,10 +30,20 @@ public class TrainerDao {
 		return splSession.selectOne("trainer.selectTinformation", no);
 	}
 	
+	//강사정보2
+	public TrainerVo login2(int no) {
+		
+		
+		
+		return splSession.selectOne("trainer.selectTinformation2", no);
+	}
+	
 	//트레이너 소개 및 pt등록창
-	public TrainerVo trainerList() {
+	public List<TrainerVo> trainerList() {
 		System.out.println("TrainerDao.trainerList()");
 		
-		return null;
+		List<TrainerVo> TrainerList = splSession.selectList("trainer.selectTrainerList");
+		
+		return TrainerList;
 	}
 }
