@@ -47,16 +47,11 @@
 	<!-- 강사소개리스트 -->
 	<select id="selectTrainerList" resultType="com.javaex.vo.TrainerVo">
 		<![CDATA[
-			select t.name,
-				   t.age,
-			       t.hp,
-			       i.orgName,
-			       i.saveName,
-			       i.filePath,
-			       i.fileSize,
-			       i.content
-			from trainer t, introduction i
-			where t.no = i.trainer_no
+			select trainer_no,
+				   name,
+				   saveName,
+				   career
+			from trainer
 		]]>
 	</select>
 	

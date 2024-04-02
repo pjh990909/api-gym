@@ -2,7 +2,7 @@ package com.javaex.vo;
 
 public class TrainerVo {
 
-	private int no;
+	private int trainer_no;
 	private String id;
 	private String password;
 	private String name;
@@ -14,15 +14,16 @@ public class TrainerVo {
 	private String saveName;
 	private String filePath;
 	private String fileSize;
+	private String career;
 
 	public TrainerVo() {
 		super();
 	}
 
-	public TrainerVo(int no, String id, String password, String name, String address, String gender, String hp, int age,
-			String orgName, String saveName, String filePath, String fileSize) {
+	public TrainerVo(int trainer_no, String id, String password, String name, String address, String gender, String hp, int age,
+			String orgName, String saveName, String filePath, String fileSize, String career) {
 		super();
-		this.no = no;
+		this.trainer_no = trainer_no;
 		this.id = id;
 		this.password = password;
 		this.name = name;
@@ -34,14 +35,15 @@ public class TrainerVo {
 		this.saveName = saveName;
 		this.filePath = filePath;
 		this.fileSize = fileSize;
+		this.career = career;
 	}
 
-	public int getNo() {
-		return no;
+	public int getTrainer_no() {
+		return trainer_no;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setTrainer_no(int trainer_no) {
+		this.trainer_no = trainer_no;
 	}
 
 	public String getId() {
@@ -132,11 +134,20 @@ public class TrainerVo {
 		this.fileSize = fileSize;
 	}
 
+	public String getCareer() {
+		return career;
+	}
+
+	public void setCareer(String career) {
+		this.career = career;
+	}
+
 	@Override
 	public String toString() {
-		return "TrainerVo [no=" + no + ", id=" + id + ", password=" + password + ", name=" + name + ", address="
+		return "TrainerVo [no=" + trainer_no + ", id=" + id + ", password=" + password + ", name=" + name + ", address="
 				+ address + ", gender=" + gender + ", hp=" + hp + ", age=" + age + ", orgName=" + orgName
-				+ ", saveName=" + saveName + ", filePath=" + filePath + ", fileSize=" + fileSize + "]";
+				+ ", saveName=" + saveName + ", filePath=" + filePath + ", fileSize=" + fileSize + ", content="
+				+ career + "]";
 	}
 
 }

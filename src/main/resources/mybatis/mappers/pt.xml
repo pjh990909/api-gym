@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pt">
+	
+	<!-- 회원 pt등록(수정) -->
+	<update id="insert" parameterType="com.javaex.vo.PtVo">
+		<![CDATA[
+			insert into pt 
+			values(null, #{no}, #{trainer_no}, #{pt_count}, #{pt_total})
+		]]>
+	</update>
+
+</mapper>

@@ -33,7 +33,7 @@ public class TrainerController {
 
 		if (authUser != null) {
 			// 토큰 발급 헤더에 실어 보낸다
-			JwtUtil.createTokenAndSetHeader(response, "" + authUser.getNo());
+			JwtUtil.createTokenAndSetHeader(response, "" + authUser.getTrainer_no());
 			return JsonResult.success(authUser);
 		} else {
 			return JsonResult.fail("로그인 실패");
@@ -59,6 +59,8 @@ public class TrainerController {
 		System.out.println("TrainerController.trainerintroduction()");
 		
 		List<TrainerVo> TrainerList = trainerService.exeTrainerList();
+		
+		System.out.println(TrainerList);
 		
 		return JsonResult.success(TrainerList);
 	}
