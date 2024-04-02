@@ -6,35 +6,33 @@ import org.springframework.stereotype.Repository;
 
 import com.javaex.vo.MemberVo;
 
-
 @Repository
 public class MemberDao {
 
 	@Autowired
 	private SqlSession sqlSession;
 
-	// 로그인
+	//로그인
 	public MemberVo memberSelectByIdPw(MemberVo memberVo) {
 		System.out.println("MemberDao.memberSelectByIdPw()");
 		MemberVo authUser = sqlSession.selectOne("member.selectByIdPw", memberVo);
 		return authUser;
 	}
 
-	// 로그인 후 로그인 성공한 멤버 페이지
-	public MemberVo memberSelectOneByNo(int no) {
-
-		System.out.println("MemberDao.memberSelectOneByNo()");
-
-		MemberVo memberVo = sqlSession.selectOne("member.selectOneByNo", no);
-		return memberVo;
-	}
-
-	// 회원정보수정
-	public int memberUpdate(MemberVo memberVo) {
-
-		System.out.println("MemberDao.memberUpdate()");
-		int count = sqlSession.update("member.update", memberVo);
-
+	// 회원가입
+	public int join(MemberVo memberVo) {
+		System.out.println("MemberDao.userModify()");
+		int count = sqlSession.insert("member.join", memberVo);
+		System.out.println(count);
 		return count;
 	}
+
+	// id 중복체크
+	public int check(String id) {
+		System.out.println("MemberDao.userModify()");
+		int count = sqlSession.selectOne("member.idCheck", id);
+		System.out.println(count);
+		return count;
+	}
+
 }

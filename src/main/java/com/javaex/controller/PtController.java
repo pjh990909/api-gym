@@ -19,12 +19,12 @@ public class PtController {
 	private PtService ptService;
 	
 	@PostMapping("/api/pt/registration")
-	public JsonResult ptRegistration(@RequestBody PtVo ptVo) {
+	public JsonResult ptRegistration(@RequestBody PtVo ptVo,HttpServletRequest request) {
 		System.out.println("PtController.ptRegistration()");
 		
-		//int no = JwtUtil.getNoFromHeader(request);
-		//실험~
-		int no = 1;
+		int no = JwtUtil.getNoFromHeader(request);
+		System.out.println(no);
+		
 		ptVo.setNo(no);
 		
 		int count = ptService.exeregistration(ptVo);

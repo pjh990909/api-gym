@@ -4,28 +4,27 @@ public class MemberVo {
 
 	//필드
 	private int no;
-	private int trainerNo;
 	private String id;
 	private String password;
 	private String name;
 	private String address;
 	private String gender;
 	private String hp;
-	private String age;
-	private String registerDate;
-	private int remainDate;
-	private int ptCount;
+	private int age;
+	private int lockerNo;
+	private int period;
+	private String approval;
+	
 	
 	//생성자
 	public MemberVo() {
-		
+		super();
 	}
 
-	public MemberVo(int no, int trainerNo, String id, String password, String name, String address, String gender,
-			String hp, String age, String registerDate, int remainDate, int ptCount) {
-		
+	public MemberVo(int no, String id, String password, String name, String address, String gender, String hp, int age,
+			int lockerNo, int period, String approval) {
+		super();
 		this.no = no;
-		this.trainerNo = trainerNo;
 		this.id = id;
 		this.password = password;
 		this.name = name;
@@ -33,27 +32,18 @@ public class MemberVo {
 		this.gender = gender;
 		this.hp = hp;
 		this.age = age;
-		this.registerDate = registerDate;
-		this.remainDate = remainDate;
-		this.ptCount = ptCount;
+		this.lockerNo = lockerNo;
+		this.period = period;
+		this.approval = approval;
 	}
-	
-	//getter setter
 
+	//메소드 - g/s
 	public int getNo() {
 		return no;
 	}
 
 	public void setNo(int no) {
 		this.no = no;
-	}
-
-	public int getTrainerNo() {
-		return trainerNo;
-	}
-
-	public void setTrainerNo(int trainerNo) {
-		this.trainerNo = trainerNo;
 	}
 
 	public String getId() {
@@ -104,45 +94,48 @@ public class MemberVo {
 		this.hp = hp;
 	}
 
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
-	public String getRegisterDate() {
-		return registerDate;
+	public int getLockerNo() {
+		return lockerNo;
 	}
 
-	public void setRegisterDate(String registerDate) {
-		this.registerDate = registerDate;
+	public void setLockerNo(int lockerNo) {
+		this.lockerNo = lockerNo;
 	}
 
-	public int getRemainDate() {
-		return remainDate;
+	public int getPeriod() {
+		return period;
 	}
 
-	public void setRemainDate(int remainDate) {
-		this.remainDate = remainDate;
+	public void setPeriod(int period) {
+		this.period = period;
 	}
 
-	public int getPtCount() {
-		return ptCount;
+	public String getApproval() {
+		return approval;
 	}
 
-	public void setPtCount(int ptCount) {
-		this.ptCount = ptCount;
+	public void setApproval(String approval) {
+		this.approval = approval;
 	}
 
-	//toString
+	//메소드 - 일반
 	@Override
 	public String toString() {
-		return "MemberVo [no=" + no + ", trainerNo=" + trainerNo + ", id=" + id + ", password=" + password + ", name="
-				+ name + ", address=" + address + ", gender=" + gender + ", hp=" + hp + ", age=" + age
-				+ ", registerDate=" + registerDate + ", remainDate=" + remainDate + ", ptCount=" + ptCount + "]";
+		return "MemberVo [no=" + no + ", id=" + id + ", password=" + password + ", name=" + name + ", address="
+				+ address + ", gender=" + gender + ", hp=" + hp + ", age=" + age + ", lockerNo=" + lockerNo
+				+ ", period=" + period + ", approval=" + approval + "]";
 	}
+	
+	
+	
 	
 	
 	

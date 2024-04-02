@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import com.javaex.dao.MemberDao;
 import com.javaex.vo.MemberVo;
 
-
 @Service
 public class MemberService {
 
@@ -20,20 +19,17 @@ public class MemberService {
 		return authUser;
 	}
 
-	// 로그인 후 로그인 성공한 멤버 페이지
-	public MemberVo exeGetMemberInfo(int no) {
-		System.out.println("MemberService.exeGetMemberInfo()");
-
-		MemberVo memberVo = memberDao.memberSelectOneByNo(no);
-		return memberVo;
+	// 회원가입
+	public int exeJoin(MemberVo memberVo) {
+		System.out.println("MemberService.exeJoin()");
+		int count = memberDao.join(memberVo);
+		return count;
 	}
 
-	// 성공후 회원정보 수정
-	public int exeModify(MemberVo memberVo) {
-		System.out.println("MemberService.exeModify()");
-
-		int count = memberDao.memberUpdate(memberVo);
-		System.out.println(memberVo);
+	// id 중복체크용
+	public int exeCheck(String id) {
+		System.out.println("MemberService.exeCheck()");
+		int count = memberDao.check(id);
 		return count;
 	}
 
