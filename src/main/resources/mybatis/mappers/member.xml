@@ -5,7 +5,7 @@
 	<!-- 로그인 -->
 	<select id="selectByIdPw" resultType="com.javaex.vo.MemberVo" parameterType="com.javaex.vo.MemberVo">
 		<![CDATA[
-			select no,name, address, gender, hp, age, trainer_no as trainerNo
+			select no,name, address, gender, hp, age, locker_no as lockerNo
 			from member
 			where id= #{id}
 			and password=#{password}

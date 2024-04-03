@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.javaex.service.TrainerService;
 import com.javaex.util.JsonResult;
@@ -50,6 +53,7 @@ public class TrainerController {
 		TrainerVo trainerVo = trainerService.exeLoginSeccess(no);
 		System.out.println(trainerVo);
 		
+		
 		return JsonResult.success(trainerVo);
 	}
 	
@@ -65,4 +69,26 @@ public class TrainerController {
 		return JsonResult.success(TrainerList);
 	}
 	
+	//트레이너 등록폼(수정폼)
+	@GetMapping("api/trainer/trainerupdateinsert")
+	public JsonResult trainerupdateinsertform(HttpServletRequest request) {
+		System.out.println("TrainerController.trainerupdateinsertform()");
+		
+		int no = JwtUtil.getNoFromHeader(request);
+		
+		TrainerVo trainerVo = trainerService.exeTrainerinsertform(no);
+		
+		
+		return JsonResult.success(trainerVo);
+	}
+	
+	//트레이너 수정(등록,수정)
+	@PutMapping("api/trainer/trainerupdateinsert")
+	public JsonResult trainerupdateinsert(@RequestParam int trainer_no,@RequestParam String career,@RequestParam MultipartFile file) {
+		System.out.println("TrainerController.trainerupdateinsert()");
+		
+		trainerService.exeTrainerupdateinsert(trainer_no, file, career);
+		
+		return JsonResult.success("성공");
+	}
 }

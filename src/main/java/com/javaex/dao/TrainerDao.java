@@ -46,4 +46,22 @@ public class TrainerDao {
 		
 		return TrainerList;
 	}
+	
+	//트레이너 등록폼(수정)
+	public TrainerVo trainerinsertform(int no) {
+		System.out.println("TrainerDao.trainerinsertform()");
+		
+		TrainerVo trainerVo = splSession.selectOne("trainer.trainerinsertform", no);
+		System.out.println(trainerVo);
+		
+		return trainerVo;
+	}
+	//트레이너 수정(등록,수정)
+	public void trainerupdateinsert(TrainerVo trainerVo) {
+		System.out.println("TrainerDao.trainerupdateinsert()");
+		
+		splSession.update("trainer.Tupdateinsert",trainerVo);
+		
+		
+	}
 }

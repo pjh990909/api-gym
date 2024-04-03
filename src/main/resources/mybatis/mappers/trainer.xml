@@ -5,14 +5,13 @@
 <mapper namespace="trainer">
 	<!-- 쿼리문작성 -->
 	
-	<!-- 트레이너 등록 -->
-	
 	<!-- 트레이너 로그인 -->
 	<select id="selectByIdPw" resultType="com.javaex.vo.TrainerVo" parameterType="com.javaex.vo.TrainerVo">
 		<![CDATA[
-			select no,name, address, gender, hp, age
+			select trainer_no, name, address, gender, hp, age, career, saveName
 			from trainer
-			where id= #{id} and password=#{password}
+			where id= #{id}
+			and password=#{password}
 		]]>
 	</select>
 	
@@ -54,5 +53,29 @@
 			from trainer
 		]]>
 	</select>
+	
+	<!-- 트레이너 등록폼(수정) -->
+	<select id="trainerinsertform" resultType="com.javaex.vo.TrainerVo">
+		<![CDATA[
+			select trainer_no,
+				   name,
+				   saveName,
+				   career
+			from trainer
+			where trainer_no = #{no}
+		]]>
+	</select>
+	
+	<update id="Tupdateinsert" parameterType="com.javaex.vo.TrainerVo">
+		<![CDATA[
+			update trainer
+			set orgName = #{orgName},
+				saveName = #{saveName},
+			    filePath = #{filePath},
+			    fileSize = #{fileSize},
+			    career = #{career}
+			where trainer_no = #{trainer_no}
+		]]>
+	</update>
 	
 </mapper>

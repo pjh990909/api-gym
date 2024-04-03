@@ -13,16 +13,23 @@ public class TrainerVo {
 	private String orgName;
 	private String saveName;
 	private String filePath;
-	private String fileSize;
+	private long fileSize;
 	private String career;
 
 	public TrainerVo() {
-		super();
 	}
 
-	public TrainerVo(int trainer_no, String id, String password, String name, String address, String gender, String hp, int age,
-			String orgName, String saveName, String filePath, String fileSize, String career) {
-		super();
+	public TrainerVo(int trainer_no,String orgName, String saveName, String filePath, long fileSize, String career) {
+		this.trainer_no = trainer_no;
+		this.orgName = orgName;
+		this.saveName = saveName;
+		this.filePath = filePath;
+		this.fileSize = fileSize;
+		this.career = career;
+	}
+
+	public TrainerVo(int trainer_no, String id, String password, String name, String address, String gender, String hp,
+			int age, String orgName, String saveName, String filePath, long fileSize, String career) {
 		this.trainer_no = trainer_no;
 		this.id = id;
 		this.password = password;
@@ -126,11 +133,11 @@ public class TrainerVo {
 		this.filePath = filePath;
 	}
 
-	public String getFileSize() {
+	public long getFileSize() {
 		return fileSize;
 	}
 
-	public void setFileSize(String fileSize) {
+	public void setFileSize(long fileSize) {
 		this.fileSize = fileSize;
 	}
 
@@ -146,8 +153,8 @@ public class TrainerVo {
 	public String toString() {
 		return "TrainerVo [no=" + trainer_no + ", id=" + id + ", password=" + password + ", name=" + name + ", address="
 				+ address + ", gender=" + gender + ", hp=" + hp + ", age=" + age + ", orgName=" + orgName
-				+ ", saveName=" + saveName + ", filePath=" + filePath + ", fileSize=" + fileSize + ", content="
-				+ career + "]";
+				+ ", saveName=" + saveName + ", filePath=" + filePath + ", fileSize=" + fileSize + ", content=" + career
+				+ "]";
 	}
 
 }

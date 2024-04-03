@@ -1,8 +1,11 @@
 package com.javaex.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javaex.service.PtService;
@@ -31,4 +34,20 @@ public class PtController {
 		
 		return JsonResult.success(count);
 	}
+	
+	@PostMapping("/api/pt/mymemberlist")
+	public JsonResult mymemberlist(HttpServletRequest request,
+								   @RequestParam(required = false, defaultValue = "1") int crtPage,
+								   @RequestParam(required = false, defaultValue = "") String keyword
+								   ){
+		System.out.println("PtController.mymemberlist()");
+		
+		int trainer_no = JwtUtil.getNoFromHeader(request);
+		
+		Map<String, Object> pMap = ptService.exeMyMemberList(trainer_no,crtPage,keyword);
+		
+		return JsonResult.success(pMap);
+	}
+	
+	
 }

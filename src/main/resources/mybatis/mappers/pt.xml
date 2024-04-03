@@ -11,4 +11,39 @@
 		]]>
 	</update>
 
+	<!-- 나의 pt회원리스트 -->
+	<select id="selectlist" parameterType="map" resultType="com.javaex.vo.PtVo">
+		<![CDATA[
+			select m.name as membername,
+				   p.pt_count,
+			       t.name as trainername
+			from pt p,member m,trainer t
+			where p.no = m.no
+			and p.trainer_no = t.trainer_no
+			and p.trainer_no = #{trainer_no}
+		]]>
+		<if test="keyword != null">
+			<![CDATA[
+				and (m.name like concat('%',#{keyword},'%') or p.pt_count like concat('%',#{keyword},'%'))
+			]]>
+		</if>	
+		<![CDATA[				 
+			limit #{startRowNo}, #{listCnt}
+		]]>
+	</select>
+	
+	<!-- 전체 글갯수 -->
+	<select id="selectMemberTotalCnt" parameterType="string" resultType="int">
+		<![CDATA[
+			select count(*) count
+			from pt p,member m
+		]]>
+		<if test="keyword != null">
+			<![CDATA[
+				where (m.name like concat('%',#{keyword},'%') or p.pt_count like concat('%',#{keyword},'%'))
+			]]>
+		</if>	
+	</select>
+	
+	
 </mapper>
