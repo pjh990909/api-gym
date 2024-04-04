@@ -28,7 +28,7 @@ public class PtService {
 		System.out.println("PtService.exeMyMemberList()");
 
 		// 한페이지당 출력 글갯수
-		int listCnt = 3;
+		int listCnt = 1;
 
 		// crtPage
 		crtPage = (crtPage > 0) ? crtPage : (crtPage = 1);
@@ -64,7 +64,7 @@ public class PtService {
 
 		// 전체 글갯수
 		int totalCnt = ptDao.selectmemberTotalCnt(keyword);
-
+		
 		// 1~5 -> (1,5)
 		// 6~10 -> (6,10)
 		// 11~15 -> (11,15)
@@ -80,9 +80,12 @@ public class PtService {
 		// 마지막 버튼 번호
 		int endPageBtnNo = (int) Math.ceil(crtPage / (double) pageBtncount) * pageBtncount;
 
+		
 		// 시작 버튼 번호
 		int startPageBtnNo = (endPageBtnNo - pageBtncount) + 1;
-
+		
+		
+		
 		// 다음 화살표 유무
 		boolean next = false;
 		if (listCnt * endPageBtnNo < totalCnt) { // 한페이지당글갯수(10) * 마지막버튼번호(5) <전체글갯수 102개

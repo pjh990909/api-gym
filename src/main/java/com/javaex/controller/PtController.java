@@ -5,12 +5,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javaex.service.PtService;
 import com.javaex.util.JsonResult;
 import com.javaex.util.JwtUtil;
+import com.javaex.vo.PageVo;
 import com.javaex.vo.PtVo;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -37,14 +37,18 @@ public class PtController {
 	
 	@PostMapping("/api/pt/mymemberlist")
 	public JsonResult mymemberlist(HttpServletRequest request,
-								   @RequestParam(required = false, defaultValue = "1") int crtPage,
-								   @RequestParam(required = false, defaultValue = "") String keyword
+								   @RequestBody PageVo pageVo
+								   
 								   ){
 		System.out.println("PtController.mymemberlist()");
 		
+		System.out.println(pageVo);
+		
 		int trainer_no = JwtUtil.getNoFromHeader(request);
 		
-		Map<String, Object> pMap = ptService.exeMyMemberList(trainer_no,crtPage,keyword);
+		Map<String, Object> pMap = ptService.exeMyMemberList(trainer_no,pageVo.getCrtPage(),pageVo.getKeyword());
+		
+		
 		
 		return JsonResult.success(pMap);
 	}

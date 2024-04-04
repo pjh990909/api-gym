@@ -37,10 +37,11 @@
 		<![CDATA[
 			select count(*) count
 			from pt p,member m
+			where p.no = m.no
 		]]>
 		<if test="keyword != null">
 			<![CDATA[
-				where (m.name like concat('%',#{keyword},'%') or p.pt_count like concat('%',#{keyword},'%'))
+				and (m.name like concat('%',#{keyword},'%') or p.pt_count like concat('%',#{keyword},'%'))
 			]]>
 		</if>	
 	</select>
