@@ -14,7 +14,8 @@
 	<!-- 나의 pt회원리스트 -->
 	<select id="selectlist" parameterType="map" resultType="com.javaex.vo.PtVo">
 		<![CDATA[
-			select m.name as membername,
+			select p.no,
+				   m.name as membername,
 				   p.pt_count,
 			       t.name as trainername
 			from pt p,member m,trainer t

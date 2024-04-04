@@ -28,7 +28,7 @@ public class PtService {
 		System.out.println("PtService.exeMyMemberList()");
 
 		// 한페이지당 출력 글갯수
-		int listCnt = 1;
+		int listCnt = 10;
 
 		// crtPage
 		crtPage = (crtPage > 0) ? crtPage : (crtPage = 1);
